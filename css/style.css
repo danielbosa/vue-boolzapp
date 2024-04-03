@@ -54,11 +54,13 @@ img{
 
 #notification-bar div div{
     font-size: 12px;
+    margin-bottom: -10px;
 }
 
 #notification-bar div a{
     font-size: 10px;
     color: gray;
+    margin-top: -10px;
 }
 
 #notification-bar span{
