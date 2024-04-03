@@ -63,13 +63,16 @@
 
                 </div>
             </div>
+            <!-- RIGHT SIDE -->
             <div class="debug right" id="chat-section">
                 <div class="debug d-flex justify-content-between align-items-center p-2 contact-bar">
                     <div class="d-flex active-chat">
-                        <img src="./img/avatar_1.jpg" alt="Michele" class="img-fluid rounded-circle">
+                        <img :src="activeContact.avatar" alt="Michele" class="img-fluid rounded-circle">
                         <div class="ps-2 align-self-center">
-                            <div class="fw-bold chat-name">Michele</div>
-                            <div class="last-viewed">Ultimo accesso oggi alle 12:00</div>
+                            <div class="fw-bold chat-name">{{activeContact.name}}</div>
+                            <div class="last-viewed">Ultimo accesso oggi alle 
+                            <span>{{activeContact.messages.date}}</span>
+                            </div>
                         </div>
                     </div>
                     <div>
@@ -79,12 +82,8 @@
                     </div>
                 </div>
                 <div id="chat" class="d-flex flex-column">
-                    <div class="msg sent">
-                        <div>message</div>
-                        <div id="msg-time" class="text-end">time</div>
-                    </div>
-                    <div class="msg received">
-                        <div>message</div>
+                    <div class="msg" :class="msg.status" v-for="(msg,index) in activeContact.messages">
+                        <div>{{msg.message}}</div>
                         <div id="msg-time" class="text-end">time</div>
                     </div>
                 </div>

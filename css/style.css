@@ -163,7 +163,6 @@ img{
 .sent{
     background-color: var(--color-sent);
     align-self: flex-end;
-
 }
 
 .received{
