@@ -35,6 +35,6 @@ createApp({
         },
     },
     mounted(){
-        let date = Date().toLocaleString()
+        this.date = Date().toLocaleString()
     }
 }).mount('#app');

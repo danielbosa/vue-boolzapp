@@ -84,7 +84,7 @@
                 <div id="chat" class="d-flex flex-column">
                     <div class="msg" :class="msg.status" v-for="(msg,index) in activeContact.messages">
                         <div>{{msg.message}}</div>
-                        <div id="msg-time" class="text-end">time</div>
+                        <div id="msg-time" class="text-end">{{msg.date}}</div>
                     </div>
                 </div>
                 <div id="sender-bar" class="d-flex justify-content-around align-items-center">
