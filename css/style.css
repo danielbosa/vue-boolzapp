@@ -47,6 +47,7 @@ img{
     width: 30%;
 }
 
+/* Notification bar */
 #notification-bar{
     background-color: var(--color-notification-bar);
     height: 50px;
@@ -81,11 +82,22 @@ img{
     transform: translate(-50%, -50%);
 }
 
+/* Search bar */
 #searchbar{
     background-color: var(--color-bar);
     height: 40px;
 }
 
+#searchbar form{
+    line-height: 20px;
+}
+
+#searchbar input{
+    width: 95%;
+    font-size: 10px;
+    padding-left: 20px;
+    background-image: url('https://fontawesome.com/icons/magnifying-glass?f=classic&s=solid');
+}
 
 #open-chats{
     overflow-y: scroll;
