@@ -1,6 +1,18 @@
+:root {
+	--color-bar: #eaeaea;
+	--color-notification-bar: #8edafc;
+	--color-sent: #d5f9ba;
+	--color-received: #ffffff;
+	--color-write-bar: #f3eeea;
+	--color-icon: #b1b1b1;
+	--color-icon-2: #96a8b8;
+}
+
 .debug{
     border: 2px solid red;
 }
+
+/* General */
 
 body{
     background-color: white;
@@ -18,9 +30,67 @@ body{
     background-color: white;
 }
 
+img{
+    width: 50px;
+}
+
+/* i{
+    margin: 0 10px;
+} */
+
+.contact-bar{
+    background-color: var(--color-bar);
+}
+
+/* LEFT side */
 .left{
     width: 30%;
 }
+
+#notification-bar{
+    background-color: var(--color-notification-bar);
+    height: 50px;
+}
+
+#notification-bar div div{
+    font-size: 12px;
+}
+
+#notification-bar div a{
+    font-size: 10px;
+    color: gray;
+}
+
+#notification-bar span{
+    background-color: white;
+    padding: 5px;
+    width: 30px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    position: relative;
+}
+
+#notification-bar span i{
+    color: var(--color-notification-bar);
+    font-size: 14px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#searchbar{
+    background-color: var(--color-bar);
+    height: 40px;
+}
+
+
+#open-chats{
+    overflow-y: scroll;
+    height: calc(100% - 160px);
+}
+
+/* RIGHT side */
 
 .right{
     width: 70%;
@@ -31,18 +101,4 @@ body{
     height: calc(100% - 140px);
     padding: 20px;
     background-image: url(../img/mine.jpg);
-}
-
-#open-chats{
-    overflow-y: scroll;
-    height: calc(100% - 140px);
-}
-/* SISTEMARE MISURE DI OPEN CHATS */
-
-img{
-    width: 50px;
-}
-
-i{
-    margin: 0 5px;
 }
