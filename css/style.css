@@ -135,16 +135,40 @@ img{
     width: 70%;
 }
 
-#chat{
-    overflow-y: scroll;
-    height: calc(100% - 130px);
-    padding: 20px;
-    background-image: url(../img/mine.jpg);
-}
-
 .last-viewed{
     color: var(--color-icon-2);
     font-size: 12px;
+}
+
+/* chat */
+#chat{
+    overflow-y: scroll;
+    height: calc(100% - 130px);
+    padding: 20px 50px;
+    background-image: url(../img/mine.jpg);
+}
+
+.msg{
+    width: 40%;
+    padding: 5px 10px;
+    border-radius: 7px;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.sent{
+    background-color: var(--color-sent);
+    align-self: flex-end;
+
+}
+
+.received{
+    background-color: white;
+}
+
+#msg-time{
+    font-size: 8px;
+    color: var(--color-icon-2);
 }
 
 /* Sender bar */
