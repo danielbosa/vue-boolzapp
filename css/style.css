@@ -41,6 +41,7 @@ img{
 
 .contact-bar{
     background-color: var(--color-bar);
+    height: 70px;
 }
 
 .contact-bar i{
@@ -136,7 +137,7 @@ img{
 
 #chat{
     overflow-y: scroll;
-    height: calc(100% - 140px);
+    height: calc(100% - 130px);
     padding: 20px;
     background-image: url(../img/mine.jpg);
 }
@@ -144,4 +145,21 @@ img{
 .last-viewed{
     color: var(--color-icon-2);
     font-size: 12px;
+}
+
+/* Sender bar */
+#sender-bar{
+    background-color: #F1F1F1;
+    height: 60px;
+}
+
+#sender-bar span{
+   width: 10%;
+   color: var(--color-icon-2);
+}
+
+#sender-bar input{
+    width: 80%;
+    padding: 0.7rem 0.4rem;
+    font-size: 10px;
 }
