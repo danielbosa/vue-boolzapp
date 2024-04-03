@@ -23,7 +23,7 @@
                 <div class="debug d-flex justify-content-between align-items-center p-2 contact-bar">
                     <div class="d-flex align-content-center">
                         <img src="./img/avatar_io.jpg" alt="" class="img-fluid rounded-circle">
-                        <span class="align-self-center">Nome</span>
+                        <span class="align-self-center">Sofia</span>
                     </div>
                     <div>
                         <i class="fa-regular fa-circle"></i>
@@ -89,7 +89,7 @@
                 </div>
                 <div id="sender-bar" class="d-flex justify-content-around align-items-center">
                     <span class="text-center"><i class="fa-regular fa-face-smile"></i></span>
-                    <input type="text" id="text" name="text" placeholder="Scrivi un messaggio">
+                    <input v-model="msgText" type="text" id="text" name="text" placeholder="Scrivi un messaggio" @keyup.enter="sendMsg">
                     <span class="text-center"><i class="fa-solid fa-microphone"></i></span>
                 </div>
             </div>

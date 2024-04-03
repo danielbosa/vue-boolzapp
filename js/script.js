@@ -8,12 +8,24 @@ createApp({
             contacts,
             activeContactId: 1,
             itemText: '',
-            done: ''
+            done: '',
+            msgText:'',
+            newMsg:'',
         }
     },
     methods: {
         showChat(id){
             this.activeContactId = id
+        },
+        sendMsg(){
+            //let date = date.toLocaleString(),
+            this.newMsg= 
+                 {
+            //         //date: date,
+                    message: this.msgText,
+                    status: 'sent'
+                };
+            this.activeContact.messages.push(this.newMsg)
         },
     },
     computed:{
@@ -22,6 +34,6 @@ createApp({
         },
     },
     mounted(){
-
+        let date = Date().toLocaleString()
     }
 }).mount('#app');
