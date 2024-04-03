@@ -112,7 +112,11 @@ img{
     background-color: #F1F1F1;
 }
 
-.active-chat{
+.contact{
+    background-color: white;
+}
+
+.active-contact{
     background-color: var(--color-active-chat);
 }
 
@@ -140,7 +144,7 @@ img{
     font-size: 12px;
 }
 
-/* chat */
+/* chat section*/
 #chat{
     overflow-y: scroll;
     height: calc(100% - 130px);

@@ -52,7 +52,7 @@
                 <!-- open chats -->
                 <div class="" id="open-chats">
                 <!-- ATTN: active-chat da sistemare in base a chat aperta/attiva -->
-                    <div class="d-flex ps-3 py-1 active-chat" v-for="(contact, index) in contacts" :key="contact.id" >
+                    <div class="d-flex ps-3 py-1 contact" :class="{'active-contact' : activeContactId === contact.id}" v-for="(contact, index) in contacts" :key="contact.id" @click="showChat(contact.id)">
                         <img :src="contact.avatar" :alt="contact.name" class="img-fluid rounded-circle">
                         <div class="ps-3">
                             <div class="fw-bold chat-name">{{contact.name}}</div>

@@ -6,17 +6,15 @@ createApp({
     data(){
         return {
             contacts,
+            activeContactId: 1,
             itemText: '',
             done: ''
         }
     },
     methods: {
-        /*toggleDone(id){
-            const item = this.todo.findIndex((el)=>{
-                return el.id === id;
-            })
-            this.todo[item].done = !this.todo[item].done
-        },*/
+        showChat(id){
+            this.activeContactId = id
+        },
     },
     computed:{
 
