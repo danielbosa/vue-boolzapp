@@ -6,6 +6,7 @@
 	--color-write-bar: #f3eeea;
 	--color-icon: #b1b1b1;
 	--color-icon-2: #96a8b8;
+    --color-active-chat: #e9ebeb;
 }
 
 .debug{
@@ -40,6 +41,11 @@ img{
 
 .contact-bar{
     background-color: var(--color-bar);
+}
+
+.contact-bar i{
+    color: var(--color-icon);
+    margin: 0 0.4rem;
 }
 
 /* LEFT side */
@@ -98,9 +104,28 @@ img{
     padding-left: 20px;
 }
 
+/* Open Chats */
 #open-chats{
     overflow-y: scroll;
     height: calc(100% - 150px);
+    background-color: #F1F1F1;
+}
+
+.active-chat{
+    background-color: var(--color-active-chat);
+}
+
+#open-chats div div{
+    width: 70%;
+}
+
+.chat-name{
+    font-size: 14px;
+}
+
+.msg-info{
+    font-size: 10px;
+    color: rgb(185, 185, 185);
 }
 
 /* RIGHT side */
@@ -114,4 +139,9 @@ img{
     height: calc(100% - 140px);
     padding: 20px;
     background-image: url(../img/mine.jpg);
+}
+
+.last-viewed{
+    color: var(--color-icon-2);
+    font-size: 12px;
 }
