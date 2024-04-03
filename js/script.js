@@ -11,6 +11,7 @@ createApp({
             done: '',
             msgText:'',
             newMsg:'',
+            date:'',
         }
     },
     methods: {
@@ -18,14 +19,14 @@ createApp({
             this.activeContactId = id
         },
         sendMsg(){
-            //let date = date.toLocaleString(),
             this.newMsg= 
                  {
-            //         //date: date,
+                    date: this.date,
                     message: this.msgText,
                     status: 'sent'
                 };
-            this.activeContact.messages.push(this.newMsg)
+            this.activeContact.messages.push(this.newMsg);
+            this.msgText='';
         },
     },
     computed:{
