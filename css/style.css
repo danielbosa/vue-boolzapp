@@ -51,7 +51,7 @@ img{
 
 /* LEFT side */
 .left{
-    width: 30%;
+    width: 35%;
 }
 
 /* Notification bar */
@@ -120,10 +120,6 @@ img{
     background-color: var(--color-active-chat);
 }
 
-#open-chats div div{
-    width: 70%;
-}
-
 .chat-name{
     font-size: 14px;
 }
@@ -136,7 +132,7 @@ img{
 /* RIGHT side */
 
 .right{
-    width: 70%;
+    width: 65%;
 }
 
 .last-viewed{

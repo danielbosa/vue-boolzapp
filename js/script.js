@@ -7,11 +7,7 @@ createApp({
         return {
             contacts,
             activeContactId: 1,
-            itemText: '',
-            done: '',
             msgText:'',
-            newMsg:'',
-            date:'',
         }
     },
     methods: {
@@ -19,15 +15,26 @@ createApp({
             this.activeContactId = id
         },
         sendMsg(){
-            this.newMsg= 
-                 {
-                    date: this.date,
-                    message: this.msgText,
-                    status: 'sent'
-                };
-            this.activeContact.messages.push(this.newMsg);
+            //dichiaro qui la variabile che mi serve da pushare nell'array dei messages; non ha senso che sia una variabile "globale", cioè che la dichiari nei data
+            const newMsg = {
+                date: new Date().toLocaleString(),
+                message: this.msgText,
+                status: 'sent'
+            };
+            this.activeContact.messages.push(newMsg);
             this.msgText='';
+            this.sendReply();
         },
+        sendReply(){
+            setTimeout(()=>{   
+                const newMsg = {
+                    date: new Date().toLocaleString(),
+                    message: 'ok',
+                    status: 'received'
+                };
+                this.activeContact.messages.push(newMsg);
+            }, 1000)
+        }
     },
     computed:{
         activeContact(){
@@ -35,6 +42,6 @@ createApp({
         },
     },
     mounted(){
-        this.date = Date().toLocaleString()
+
     }
 }).mount('#app');
