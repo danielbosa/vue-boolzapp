@@ -43,7 +43,7 @@ createApp({
                 const newMsg = this.createMsg("ok","received");
                 this.activeContact.messages.push(newMsg);
             },1000)
-        }
+        },
     },
     computed:{
         activeContact(){
@@ -53,6 +53,10 @@ createApp({
             return this.contacts.filter((el)=>
                 el.name.toLowerCase().includes(this.searchText.toLowerCase()));
         },
+        //lastTime(contact){
+            //return this.contacts.find((el)=> el.id === contact.id);
+            //const msgTrovato = trovato.messages.findLast((el)=>{el.status === 'sent'});
+        //}
     },
     mounted(){
 

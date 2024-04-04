@@ -19,10 +19,10 @@
 
 <body>
     <div id="app">
-        <div class="debug db-container m-auto d-flex">
+        <div class=" db-container m-auto d-flex">
             <!-- LEFT side -->
-            <div class="debug left" id="contact-list">
-                <div class="debug d-flex justify-content-between align-items-center p-2 contact-bar">
+            <div class=" left" id="contact-list">
+                <div class=" d-flex justify-content-between align-items-center p-2 contact-bar">
                     <div class="d-flex align-content-center">
                         <img src="./img/avatar_io.jpg" alt="" class="img-fluid rounded-circle">
                         <span class="align-self-center">Sofia</span>
@@ -43,20 +43,39 @@
                     </div>
                 </div>
                 <!-- searchbar -->
-                <div class="d-flex align-content-center" id="searchbar">
-                    <div class="d-flex justify-content-center">
-                        <span class="align-self-center">
+                <!-- <div class="p-2">
+                    <div class="input-group">
+                        <span class="input-group-text ">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </span>
-                        <input v-model="searchText" type="text" id="search" name="search" class="align-self-center" placeholder="Cerca o inizia una nuova chat">
+                        <input v-model="searchText" type="text" id="search" name="search"
+                            class="align-self-center form-control" placeholder="Cerca o inizia una nuova chat">
+                    </div>
+                </div> -->
+                <div id="searchbar" class="d-flex align-items-center">
+                    <div class="input-group">
+                        <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-magnifying-glass"></i></span>
+                        <input v-model="searchText" type="text" id="search" name="search" class="form-control" placeholder="Cerca o inizia una nuova chat">
                     </div>
                 </div>
+                
+
+                <!-- <div class="d-flex align-content-center" id="searchbar">
+                    <div class="d-flex justify-content-center">
+                        <span class="input-group-text align-self-center">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </span>
+                        <input v-model="searchText" type="text" id="search" name="search" class="align-self-center form-control" placeholder="Cerca o inizia una nuova chat">
+                    </div>
+                </div> -->
                 <!-- open chats -->
                 <div class="" id="open-chats">
                     <div v-if="searchedContact.length === 0" class="ps-3 pt-2">
                         Nessun contatto trovato
                     </div>
-                    <div class="d-flex justify-content-between ps-3 py-1 contact" :class="{'active-contact' : activeContactId === contact.id}" v-for="(contact, index) in searchedContact" :key="contact.id" @click="showChat(contact.id)">
+                    <div class="d-flex justify-content-between ps-3 py-1 contact"
+                        :class="{'active-contact' : activeContactId === contact.id}"
+                        v-for="(contact, index) in searchedContact" :key="contact.id" @click="showChat(contact.id)">
                         <div class="d-flex">
                             <div class="avatar">
                                 <img :src="contact.avatar" :alt="contact.name" class="img-fluid rounded-circle">
@@ -66,21 +85,21 @@
                                 <div class="msg-info">Ultimo messaggio inviato</div>
                             </div>
                         </div>
-                        
+
                         <span class="msg-info px-3">12:00</span>
                     </div>
 
                 </div>
             </div>
             <!-- RIGHT SIDE -->
-            <div class="debug right" id="chat-section">
-                <div class="debug d-flex justify-content-between align-items-center p-2 contact-bar">
+            <div class=" right" id="chat-section">
+                <div class=" d-flex justify-content-between align-items-center p-2 contact-bar">
                     <div class="d-flex active-chat">
                         <img :src="activeContact.avatar" alt="Michele" class="img-fluid rounded-circle">
                         <div class="ps-2 align-self-center">
                             <div class="fw-bold chat-name">{{activeContact.name}}</div>
-                            <div class="last-viewed">Ultimo accesso oggi alle 
-                            <!--!!!! TO BE FIXED !!!! -->
+                            <div class="last-viewed">Ultimo accesso oggi alle
+                                <!--!!!! TO BE FIXED !!!! -->
                                 <span>{{activeContact.messages.date}}</span>
                             </div>
                         </div>
@@ -99,7 +118,8 @@
                 </div>
                 <div id="sender-bar" class="d-flex justify-content-around align-items-center">
                     <span class="text-center"><i class="fa-regular fa-face-smile"></i></span>
-                    <input v-model="msgText" type="text" id="text" name="text" placeholder="Scrivi un messaggio" @keyup.enter="sendMsg">
+                    <input v-model="msgText" type="text" id="text" name="text" placeholder="Scrivi un messaggio"
+                        @keyup.enter="sendMsg">
                     <span class="text-center"><i class="fa-solid fa-microphone"></i></span>
                 </div>
             </div>

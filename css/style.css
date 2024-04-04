@@ -54,6 +54,10 @@ img{
     width: 35%;
 }
 
+#contact-list .contact-bar{
+    border-right: 1px solid var(--color-icon-2);
+}
+
 /* Notification bar */
 #notification-bar{
     background-color: var(--color-notification-bar);
@@ -92,23 +96,22 @@ img{
 /* Search bar */
 #searchbar{
     background-color: var(--color-bar);
-    height: 30px;
+    height: 40px;
+    padding: 0 10px;
 }
 
-#searchbar form{
-    font-size: 10px;
-    width: 95%;
+#searchbar .input-group-text,#searchbar input {
+    height: 25px;
 }
 
-#searchbar input{
-    width: 100%;
-    padding-left: 20px;
+#searchbar .input-group input::placeholder {
+    font-size: 10px; /* Imposta la dimensione del font del placeholder */
 }
 
 /* Open Chats */
 #open-chats{
     overflow-y: scroll;
-    height: calc(100% - 150px);
+    height: calc(100% - 160px);
     background-color: #F1F1F1;
 }
 
