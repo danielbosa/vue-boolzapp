@@ -10,6 +10,8 @@ createApp({
             contacts,
             activeContactId: 1,
             msgText:'',
+            searchText:'',
+            contactsFiltered:'',
         }
     },
     methods: {
@@ -46,6 +48,10 @@ createApp({
     computed:{
         activeContact(){
         return this.contacts.find((el)=> el.id === this.activeContactId)
+        },
+        searchedContact(){
+            return this.contacts.filter((el)=>
+                el.name.toLowerCase().includes(this.searchText.toLowerCase()));
         },
     },
     mounted(){
