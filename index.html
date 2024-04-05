@@ -135,7 +135,13 @@
                                 </ul>
                             </div>
                         </div>
-                        <div id="msg-time" class="text-end">{{msg.date.slice(11,16)}}</div>
+                        <div id="msg-time" class="d-flex justify-content-end gap-1">
+                            <span v-if="msg.status === 'sent'" class="d-flex align-items-center position-relative me-2" >
+                                <i class="fa-solid fa-check"></i>
+                                <i class="fa-solid fa-check check-read"></i>
+                            </span>
+                            <div>{{msg.date.slice(11,16)}}</div>
+                        </div>
 
 
                     </div>

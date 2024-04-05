@@ -133,11 +133,11 @@ img{
     display: flex;
 }
 
-.msg-info i{
+.fa-solid.fa-check{
     color: rgb(0, 140, 255);
 }
 
-.msg-info .check-read{
+.check-read{
     position: absolute;
     left: 4px
 
