@@ -80,6 +80,7 @@ createApp({
         deleteMsg(index){
             this.activeContact.messages.splice(index)
         },
+        //ritorna l'ultimo elemento di array messages
         getContactIndex(id){
             const index = this.contacts.findIndex((el)=> el.id === id);
             const lastMsgIndex = this.contacts[index].messages.length - 1;

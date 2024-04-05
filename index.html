@@ -73,7 +73,7 @@
                     </div>
                 </div> -->
                 <!-- open chats -->
-                <div class="" id="open-chats">
+                <section class="" id="open-chats">
                     <div v-if="searchedContact.length === 0" class="ps-3 pt-2">
                         Nessun contatto trovato
                     </div>
@@ -86,14 +86,20 @@
                             </div>
                             <div class="ps-3">
                                 <div class="fw-bold chat-name">{{contact.name}}</div>
-                                <div class="msg-info">{{getLastMsg(contact.id)}}</div>
+                                <div class="msg-info">
+                                    <span class="d-flex align-items-center position-relative me-2" v-if="getContactIndex(contact.id).status === 'sent'">
+                                        <i class="fa-solid fa-check"></i>
+                                        <i class="fa-solid fa-check check-read"></i>
+                                    </span>
+                                    <div>{{getLastMsg(contact.id)}}</div>
+                                </div>
                             </div>
                         </div>
 
                         <span class="msg-info px-3 align-self-start">{{getLastMsgDate(contact.id).slice(11,16)}}</span>
                     </div>
 
-                </div>
+                </section>
             </div>
             <!-- RIGHT SIDE -->
             <div class=" right" id="chat-section">

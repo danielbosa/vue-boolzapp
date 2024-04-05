@@ -130,6 +130,17 @@ img{
 .msg-info{
     font-size: 10px;
     color: rgb(185, 185, 185);
+    display: flex;
+}
+
+.msg-info i{
+    color: rgb(0, 140, 255);
+}
+
+.msg-info .check-read{
+    position: absolute;
+    left: 4px
+
 }
 
 /* RIGHT side */
