@@ -63,9 +63,12 @@ createApp({
         },
         sendReply(){
             setTimeout(()=>{   
-                const newMsg = this.createMsg("ok","received");
+                const newMsg = this.createMsg(this.replies[this.RndNumberGen(0, replies.length - 1)],"received");
                 this.activeContact.messages.push(newMsg);
             },1000)
+        },
+        RndNumberGen(min, max){
+            return Math.floor(Math.random() * (max - min + 1) ) + min;
         },
         activeMsg(index){
             if(this.activeMsgIndex === index){
@@ -124,8 +127,7 @@ createApp({
 
 /*
 Funzionalità
-- predisporre una lista di frasi e/o citazioni da utilizzare al posto della risposta "ok:" quando il pc risponde, anziché scrivere "ok", scegliere una frase random dalla lista e utilizzarla come testo del messaggio di risposta del pc
-visualizzare nella lista dei contatti l'ultimo messaggio inviato/ricevuto da ciascun contatto
+- visualizzare nella lista dei contatti l'ultimo messaggio inviato/ricevuto da ciascun contatto
 - inserire l'orario corretto nei messaggi
 - sotto al nome del contatto nella parte in alto a destra, cambiare l'indicazione dello stato: visualizzare il testo "sta scrivendo..." nel timeout in cui il pc risponde, poi mantenere la scritta "online" per un paio di secondi e infine visualizzare "ultimo accesso alle xx:yy" con l'orario corretto
 - dare la possibilità all'utente di cancellare tutti i messaggi di un contatto o di cancellare l'intera chat con tutti i suoi dati: cliccando sull'icona con i tre pallini in alto a destra, si apre un dropdown menu in cui sono presenti le voci "Elimina messaggi" ed "Elimina chat"; cliccando su di essi si cancellano rispettivamente tutti i messaggi di quel contatto (quindi rimane la conversazione vuota) oppure l'intera chat comprensiva di tutti i dati del contatto oltre che tutti i suoi messaggi (quindi sparisce il contatto anche dalla lista di sinistra)
