@@ -117,12 +117,21 @@
                         <div>{{msg.message}}</div>
                         <!-- !!! CONTROLLA SPLIT DELL'ORARIO !!! -->
                         <div id="msg-time" class="text-end">{{msg.date.split(' ')[1]}}</div>
+
+                        <!-- dropdown menu: to delete message -->
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" @click="activeMsg(index)"></button>
+                            <ul class="dropdown-menu" :class="{'show': activeMsgIndex === index}">
+                              <li><button class="dropdown-item" type="button">Action</button></li>
+                              <li><button class="dropdown-item" type="button">Another action</button></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <div id="sender-bar" class="d-flex justify-content-around align-items-center">
                     <span class="text-center">
                         <i class="fa-regular fa-face-smile"></i>
-                        <Picker @select="onSelectEmoji" class="mia" :class="{'d-none': !showEmoji}" />
+                        <!-- <Picker @select="onSelectEmoji" class="mia" :class="{'d-none': !showEmoji}" /> -->
                     </span>
                     <input v-model="msgText" type="text" id="text" name="text" placeholder="Scrivi un messaggio"
                         @keyup.enter="sendMsg">

@@ -13,6 +13,7 @@ createApp({
             msgText:'',
             searchText:'',
             contactsFiltered:'',
+            activeMsgIndex: null,
         }
     },
     methods: {
@@ -31,7 +32,8 @@ createApp({
               */
         },
         showChat(id){
-            this.activeContactId = id
+            this.activeContactId = id;
+            this.activeMsgIndex = null
         },
         createMsg(msg,status){
             const newMsg = {
@@ -58,6 +60,13 @@ createApp({
                 const newMsg = this.createMsg("ok","received");
                 this.activeContact.messages.push(newMsg);
             },1000)
+        },
+        activeMsg(index){
+            if(this.activeMsgIndex === index){
+                this.activeMsgIndex = null 
+            } else {
+                this.activeMsgIndex = index
+            }
         },
     },
     computed:{
