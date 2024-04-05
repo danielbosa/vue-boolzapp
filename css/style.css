@@ -123,12 +123,16 @@ img{
     background-color: var(--color-active-chat);
 }
 
+.chat-info{
+    width: 200px;
+}
+
 .chat-name{
     font-size: 14px;
 }
 
 .msg-info{
-    font-size: 10px;
+    font-size: 12px;
     color: rgb(185, 185, 185);
     display: flex;
 }
@@ -140,7 +144,12 @@ img{
 .check-read{
     position: absolute;
     left: 4px
+}
 
+.text-overflow{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 /* RIGHT side */
