@@ -16,7 +16,9 @@ createApp({
             searchText:'',
             contactsFiltered:'',
             activeMsgIndex: null,
-            emptyChat: false,
+            //emptyChat: false,
+            isWriting: false,
+            isOnline: false,
         }
     },
     methods: {
@@ -40,7 +42,7 @@ createApp({
         },
         createMsg(msg,status){
             const newMsg = {
-                date: dt.now().setLocale('it').toFormat('dd/MM/yyyy H:mm:ss'),
+                date: dt.now().setLocale('it').toFormat('dd/MM/yyyy HH:mm:ss'),
                 message: msg,
                 status: status
                 };
@@ -58,14 +60,24 @@ createApp({
                 this.activeContact.messages.push(newMsg);
                 this.msgText='';
                 this.sendReply();
-                console.log(this.msgText, typeof this.msgText)
+                this.isWriting = true;
             }
         },
         sendReply(){
             setTimeout(()=>{   
                 const newMsg = this.createMsg(this.replies[this.RndNumberGen(0, replies.length - 1)],"received");
                 this.activeContact.messages.push(newMsg);
-            },1000)
+                this.isWriting = false;
+                this.isOnline = true;
+                setTimeout(()=>{   
+                    this.isOnline = false;
+                },2000)
+            },1000)     
+        },
+        onlineStatus(){
+            setTimeout(()=>{   
+                this.isOnline = false;
+            },2000)
         },
         RndNumberGen(min, max){
             return Math.floor(Math.random() * (max - min + 1) ) + min;
@@ -130,7 +142,6 @@ createApp({
 Funzionalità
 - sistemare spunte blu nella parte destra: si devono colorare di blu solo 500ms dopo invio;
 
-- sotto al nome del contatto nella parte in alto a destra, cambiare l'indicazione dello stato: visualizzare il testo "sta scrivendo..." nel timeout in cui il pc risponde, poi mantenere la scritta "online" per un paio di secondi e infine visualizzare "ultimo accesso alle xx:yy" con l'orario corretto
 - dare la possibilità all'utente di cancellare tutti i messaggi di un contatto o di cancellare l'intera chat con tutti i suoi dati: cliccando sull'icona con i tre pallini in alto a destra, si apre un dropdown menu in cui sono presenti le voci "Elimina messaggi" ed "Elimina chat"; cliccando su di essi si cancellano rispettivamente tutti i messaggi di quel contatto (quindi rimane la conversazione vuota) oppure l'intera chat comprensiva di tutti i dati del contatto oltre che tutti i suoi messaggi (quindi sparisce il contatto anche dalla lista di sinistra)
 - dare la possibilità all'utente di aggiungere una nuova conversazione, inserendo in un popup il nome e il link all'icona del nuovo contatto
 - fare scroll in giù in automatico fino al messaggio più recente, quando viene aggiunto un nuovo messaggio alla conversazione (NB: potrebbe esserci bisogno di utilizzare nextTick: https://vuejs.org/api/general.html#nexttick)

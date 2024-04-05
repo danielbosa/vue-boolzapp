@@ -173,12 +173,16 @@ img{
 }
 
 .msg{
-    width: 40%;
+    width: 200px;
     padding: 5px 10px;
     border-radius: 7px;
     font-size: 14px;
     margin-top: 10px;
 }
+
+/* .msg-text{
+    width: 90%;
+} */
 
 .sent{
     background-color: var(--color-sent);
