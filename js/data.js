@@ -169,3 +169,21 @@ export const contacts= [
         ],
     }
 ]
+
+export const replies = [
+    "Carpe diem",
+    "Veni, vidi, vici",
+    "Alea iacta est",
+    "Memento mori",
+    "Per aspera ad astra",
+    "Sapere aude",
+    "Dum spiro, spero",
+    "E pluribus unum",
+    "Audaces fortuna iuvat",
+    "Amor vincit omnia",
+    "Dulce et decorum est pro patria mori",
+    "Fortuna favet fortibus",
+    "Cogito, ergo sum",
+    "Vivere est militare",
+  ];
+  

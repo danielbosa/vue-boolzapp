@@ -222,3 +222,7 @@ img{
     padding: 0.7rem 0.4rem;
     font-size: 10px;
 }
+
+#sender-bar i:hover{
+    cursor: pointer;
+}

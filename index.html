@@ -141,7 +141,10 @@
                     </span>
                     <input v-model="msgText" type="text" id="text" name="text" placeholder="Scrivi un messaggio"
                         @keyup.enter="sendMsg">
-                    <span class="text-center"><i class="fa-solid fa-microphone"></i></span>
+                    <span class="text-center">
+                        <i class="fa-solid fa-microphone" v-if="!this.msgText"></i>
+                        <i class="fa-solid fa-paper-plane" v-else="this.msgText" @click="sendMsg"></i>
+                    </span>
                 </div>
             </div>
 
