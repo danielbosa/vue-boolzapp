@@ -149,6 +149,7 @@ img{
     height: calc(100% - 130px);
     padding: 20px 50px;
     background-image: url(../img/mine.jpg);
+    position: relative;
 }
 
 .msg{
@@ -176,6 +177,25 @@ img{
 .dropdown .dropdown-toggle{
     border: 0;
     background-color: transparent;
+}
+
+.no-msg{
+    background-image: url(/img/cloud.png);
+    background-size: cover;
+    width: 40%;
+    aspect-ratio: 1 / 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.no-msg span{
+    width: 80%;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }
 
 /* Sender bar */

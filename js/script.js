@@ -81,12 +81,12 @@ createApp({
         lastMsg(){
             const index = this.activeContact.messages.length - 1;
             if(index <= 0){
-                return this.emptyChat = true;
+                return false;
             }
             return this.activeContact.messages[index].date
         },
         noMsg(){
-            if(!this.lastMsg){
+            if(!lastMsg){
                 return this.emptyChat = true
             }
         },
