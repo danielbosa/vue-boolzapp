@@ -14,6 +14,7 @@ createApp({
             searchText:'',
             contactsFiltered:'',
             activeMsgIndex: null,
+            emptyChat: false,
         }
     },
     methods: {
@@ -76,6 +77,18 @@ createApp({
         searchedContact(){
             return this.contacts.filter((el)=>
                 el.name.toLowerCase().includes(this.searchText.toLowerCase()));
+        },
+        lastMsg(){
+            const index = this.activeContact.messages.length - 1;
+            if(index <= 0){
+                return this.emptyChat = true;
+            }
+            return this.activeContact.messages[index].date
+        },
+        noMsg(){
+            if(!this.lastMsg){
+                return this.emptyChat = true
+            }
         },
         //lastTime(contact){
             //return this.contacts.find((el)=> el.id === contact.id);

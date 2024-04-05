@@ -173,6 +173,11 @@ img{
     color: var(--color-icon-2);
 }
 
+.dropdown .dropdown-toggle{
+    border: 0;
+    background-color: transparent;
+}
+
 /* Sender bar */
 #sender-bar{
     background-color: #F1F1F1;

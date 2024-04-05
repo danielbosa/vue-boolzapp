@@ -56,11 +56,13 @@
                 </div> -->
                 <div id="searchbar" class="d-flex align-items-center">
                     <div class="input-group">
-                        <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-magnifying-glass"></i></span>
-                        <input v-model="searchText" type="text" id="search" name="search" class="form-control" placeholder="Cerca o inizia una nuova chat">
+                        <span class="input-group-text" id="basic-addon1"><i
+                                class="fa-solid fa-magnifying-glass"></i></span>
+                        <input v-model="searchText" type="text" id="search" name="search" class="form-control"
+                            placeholder="Cerca o inizia una nuova chat">
                     </div>
                 </div>
-                
+
 
                 <!-- <div class="d-flex align-content-center" id="searchbar">
                     <div class="d-flex justify-content-center">
@@ -97,12 +99,13 @@
             <div class=" right" id="chat-section">
                 <div class=" d-flex justify-content-between align-items-center p-2 contact-bar">
                     <div class="d-flex active-chat">
-                        <img :src="activeContact.avatar" alt="Michele" class="img-fluid rounded-circle">
+                        <img :src="activeContact.avatar" alt="{{activeContact.name}}" class="img-fluid rounded-circle">
                         <div class="ps-2 align-self-center">
                             <div class="fw-bold chat-name">{{activeContact.name}}</div>
                             <div class="last-viewed">Ultimo accesso oggi alle
                                 <!--!!!! TO BE FIXED !!!! -->
-                                <span>{{activeContact.messages.date}}</span>
+                                <span>{{lastMsg}}</span>
+                                <span v-if="emptyChat">BRAVO</span>
                             </div>
                         </div>
                     </div>
@@ -114,18 +117,21 @@
                 </div>
                 <div id="chat" class="d-flex flex-column">
                     <div class="msg" :class="msg.status" v-for="(msg,index) in activeContact.messages">
-                        <div>{{msg.message}}</div>
+                        <div class="d-flex">
+                            <div>{{msg.message}}</div>
+                            <!-- dropdown menu: to delete message -->
+                            <div class="dropdown">
+                                <button class="dropdown-toggle" type="button" @click="activeMsg(index)"></button>
+                                <ul class="dropdown-menu" :class="{'show': activeMsgIndex === index}">
+                                    <li><button class="dropdown-item" type="button">Action</button></li>
+                                    <li><button class="dropdown-item" type="button">Another action</button></li>
+                                </ul>
+                            </div>
+                        </div>
                         <!-- !!! CONTROLLA SPLIT DELL'ORARIO !!! -->
                         <div id="msg-time" class="text-end">{{msg.date.split(' ')[1]}}</div>
 
-                        <!-- dropdown menu: to delete message -->
-                        <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" @click="activeMsg(index)"></button>
-                            <ul class="dropdown-menu" :class="{'show': activeMsgIndex === index}">
-                              <li><button class="dropdown-item" type="button">Action</button></li>
-                              <li><button class="dropdown-item" type="button">Another action</button></li>
-                            </ul>
-                        </div>
+
                     </div>
                 </div>
                 <div id="sender-bar" class="d-flex justify-content-around align-items-center">
