@@ -81,16 +81,16 @@
                         :class="{'active-contact' : activeContactId === contact.id}"
                         v-for="(contact, index) in searchedContact" :key="contact.id" @click="showChat(contact.id)">
                         <div class="d-flex">
-                            <div class="avatar">
+                            <div class="avatar flex-shrink-0">
                                 <img :src="contact.avatar" :alt="contact.name" class="img-fluid rounded-circle">
                             </div>
                             <div class="ps-3">
                                 <div class="fw-bold chat-name">{{contact.name}}</div>
-                                <div class="msg-info">Ultimo messaggio inviato</div>
+                                <div class="msg-info">{{getLastMsg(contact.id)}}</div>
                             </div>
                         </div>
 
-                        <span class="msg-info px-3">12:00</span>
+                        <span class="msg-info px-3 align-self-start">{{getLastMsgDate(contact.id).slice(11,16)}}</span>
                     </div>
 
                 </div>
@@ -104,7 +104,7 @@
                             <div class="fw-bold chat-name">{{activeContact.name}}</div>
                             <div class="last-viewed" v-if="lastMsg">Ultimo accesso oggi alle
                                 <!--!!!! TO BE FIXED !!!! -->
-                                <span>{{lastMsg}}</span>
+                                <span>{{lastMsg.slice(11,16)}}</span>
                             </div>
                         </div>
                     </div>
@@ -119,19 +119,19 @@
                         <span class="text-center">Scrivi un messaggio a {{activeContact.name}}</span>
                     </div>
                     <div class="msg" :class="msg.status" v-for="(msg,index) in activeContact.messages">
-                        <div class="d-flex">
+                        <div class="d-flex justify-content-between">
                             <div>{{msg.message}}</div>
                             <!-- dropdown menu: to delete message -->
                             <div class="dropdown">
                                 <button class="dropdown-toggle" type="button" @click="activeMsg(index)"></button>
                                 <ul class="dropdown-menu" :class="{'show': activeMsgIndex === index}">
-                                    <li><button class="dropdown-item" type="button">Action</button></li>
-                                    <li><button class="dropdown-item" type="button">Another action</button></li>
+                                    <li><button class="dropdown-item" type="button">Dettagli</button></li>
+                                    <li><button class="dropdown-item" type="button" @click="deleteMsg(index)">Cancella messaggio</button></li>
                                 </ul>
                             </div>
                         </div>
                         <!-- !!! CONTROLLA SPLIT DELL'ORARIO !!! -->
-                        <div id="msg-time" class="text-end">{{msg.date.split(' ')[1]}}</div>
+                        <div id="msg-time" class="text-end">{{msg.date.slice(11,16)}}</div>
 
 
                     </div>

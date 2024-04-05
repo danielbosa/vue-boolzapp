@@ -69,6 +69,31 @@ createApp({
                 this.activeMsgIndex = index
             }
         },
+        deleteMsg(index){
+            this.activeContact.messages.splice(index)
+        },
+        getContactIndex(id){
+            const index = this.contacts.findIndex((el)=> el.id === id);
+            const lastMsgIndex = this.contacts[index].messages.length - 1;
+            if(lastMsgIndex >= 0){
+                return this.contacts[index].messages[lastMsgIndex]
+            } else {
+                return ''
+            }
+            
+        },
+        getLastMsg(id){
+            if(!this.getContactIndex(id)){
+                return 'Non ci sono messaggi'
+            }
+            return this.getContactIndex(id).message;
+        },
+        getLastMsgDate(id){
+            if(!this.getContactIndex(id)){
+                return ''
+            }
+            return this.getContactIndex(id).date;
+        },
     },
     computed:{
         activeContact(){
@@ -78,17 +103,13 @@ createApp({
             return this.contacts.filter((el)=>
                 el.name.toLowerCase().includes(this.searchText.toLowerCase()));
         },
+        //to get the date of active contact (shown on the right side)
         lastMsg(){
             const index = this.activeContact.messages.length - 1;
-            if(index <= 0){
+            if(index < 0){
                 return false;
             }
             return this.activeContact.messages[index].date
-        },
-        noMsg(){
-            if(!lastMsg){
-                return this.emptyChat = true
-            }
         },
         //lastTime(contact){
             //return this.contacts.find((el)=> el.id === contact.id);
