@@ -121,7 +121,7 @@
                         <i class="fa-solid fa-magnifying-glass"></i>
                         <i class="fa-solid fa-paperclip"></i>
                         <i class="fa-solid fa-ellipsis-vertical " @click="activeChatMenu = !activeChatMenu"></i>
-                        <ul class="dropdown-menu" :class="{'d-none': activeChatMenu === false}" >
+                        <ul class="dropdown-menu" :class="{'d-none': activeChatMenu === false}" @mouseleave="activeChatMenu = !activeChatMenu">
                             <li><button class="dropdown-item" type="button">Dettagli</button></li>
                                     <li><button class="dropdown-item" type="button" @click="deleteMsg(index)">Cancella
                                             messaggio</button></li>
@@ -138,7 +138,7 @@
                             <!-- dropdown menu: to delete message -->
                             <div class="dropdown">
                                 <button class="dropdown-toggle" type="button" @click="activeMsg(index)"></button>
-                                <ul class="dropdown-menu" :class="{'show': activeMsgIndex === index}" v-on:mouseleave="!activeMsg(index)">
+                                <ul class="dropdown-menu" :class="{'show': activeMsgIndex === index}" @mouseleave="!activeMsg(index)">
                                     <li><button class="dropdown-item" type="button">Dettagli</button></li>
                                     <li><button class="dropdown-item" type="button" @click="deleteMsg(index)">Cancella
                                             messaggio</button></li>

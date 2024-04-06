@@ -199,6 +199,10 @@ i{
     align-self: flex-end;
 }
 
+.sent .dropdown-menu{
+    right: 20%;
+}
+
 .received{
     background-color: white;
 }
