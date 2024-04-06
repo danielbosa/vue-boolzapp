@@ -126,7 +126,7 @@
                     <div class="no-msg" v-if="!lastMsg">
                         <span class="text-center">Scrivi un messaggio a {{activeContact.name}}</span>
                     </div>
-                    <div class="msg" :class="msg.status" v-for="(msg,index) in activeContact.messages">
+                    <div class="msg" :class="msg.status" v-for="(msg,index) in activeContact.messages" ref="chatMsg">
                         <div class="d-flex justify-content-between">
                             <div class="msg-text">{{msg.message}}</div>
                             <!-- dropdown menu: to delete message -->
@@ -152,7 +152,7 @@
                 <div id="sender-bar" class="d-flex justify-content-around align-items-center">
                     <span class="text-center">
                         <i class="fa-regular fa-face-smile"></i>
-                        <!-- <Picker @select="onSelectEmoji" class="mia" :class="{'d-none': !showEmoji}" /> -->
+                        <Picker @select="onSelectEmoji" class="mia" :class="{'d-none': !showEmoji}" />
                     </span>
                     <input v-model="msgText" type="text" id="text" name="text" placeholder="Scrivi un messaggio"
                         @keyup.enter="sendMsg">

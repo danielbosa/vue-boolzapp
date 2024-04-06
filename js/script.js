@@ -16,7 +16,6 @@ createApp({
             searchText:'',
             contactsFiltered:'',
             activeMsgIndex: null,
-            //emptyChat: false,
             isWriting: false,
             isOnline: false,
         }
@@ -61,6 +60,7 @@ createApp({
                 this.msgText='';
                 this.sendReply();
                 this.isWriting = true;
+                this.autoScroll();
             }
         },
         sendReply(){
@@ -69,6 +69,7 @@ createApp({
                 this.activeContact.messages.push(newMsg);
                 this.isWriting = false;
                 this.isOnline = true;
+                this.autoScroll();
                 setTimeout(()=>{   
                     this.isOnline = false;
                 },2000)
@@ -115,6 +116,12 @@ createApp({
             }
             return this.getContactIndex(id).date;
         },
+        autoScroll(){
+            //In questo modo, usando this.$nextTick() fa l'azione di scroll solo dopo che il dom è updated
+            this.$nextTick(()=>{
+                this.$refs.chatMsg[this.$refs.chatMsg.length - 1].scrollIntoView({behavior: 'smooth'})
+            })
+        },
     },
     computed:{
         activeContact(){
@@ -144,7 +151,6 @@ Funzionalità
 
 - dare la possibilità all'utente di cancellare tutti i messaggi di un contatto o di cancellare l'intera chat con tutti i suoi dati: cliccando sull'icona con i tre pallini in alto a destra, si apre un dropdown menu in cui sono presenti le voci "Elimina messaggi" ed "Elimina chat"; cliccando su di essi si cancellano rispettivamente tutti i messaggi di quel contatto (quindi rimane la conversazione vuota) oppure l'intera chat comprensiva di tutti i dati del contatto oltre che tutti i suoi messaggi (quindi sparisce il contatto anche dalla lista di sinistra)
 - dare la possibilità all'utente di aggiungere una nuova conversazione, inserendo in un popup il nome e il link all'icona del nuovo contatto
-- fare scroll in giù in automatico fino al messaggio più recente, quando viene aggiunto un nuovo messaggio alla conversazione (NB: potrebbe esserci bisogno di utilizzare nextTick: https://vuejs.org/api/general.html#nexttick)
 
 Grafica
 - visualizzare un messaggio di benvenuto che invita l'utente a selezionare un contatto dalla lista per visualizzare i suoi messaggi, anziché attivare di default la prima conversazione
