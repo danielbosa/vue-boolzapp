@@ -87,7 +87,8 @@
                             <div class="ps-3 chat-info">
                                 <div class="fw-bold chat-name">{{contact.name}}</div>
                                 <div class="msg-info">
-                                    <span class="d-flex align-items-center position-relative me-2" v-if="getContactIndex(contact.id).status === 'sent'">
+                                    <span class="d-flex align-items-center position-relative me-2"
+                                        v-if="getContactIndex(contact.id).status === 'sent'">
                                         <i class="fa-solid fa-check"></i>
                                         <i class="fa-solid fa-check check-read"></i>
                                     </span>
@@ -116,10 +117,15 @@
                             </div>
                         </div>
                     </div>
-                    <div>
+                    <div id="active-chat-icons" class="position-relative">
                         <i class="fa-solid fa-magnifying-glass"></i>
                         <i class="fa-solid fa-paperclip"></i>
-                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                        <i class="fa-solid fa-ellipsis-vertical " @click="activeChatMenu = !activeChatMenu"></i>
+                        <ul class="dropdown-menu" :class="{'d-none': activeChatMenu === false}" >
+                            <li><button class="dropdown-item" type="button">Dettagli</button></li>
+                                    <li><button class="dropdown-item" type="button" @click="deleteMsg(index)">Cancella
+                                            messaggio</button></li>
+                        </ul>
                     </div>
                 </div>
                 <div id="chat" class="d-flex flex-column">
@@ -132,14 +138,15 @@
                             <!-- dropdown menu: to delete message -->
                             <div class="dropdown">
                                 <button class="dropdown-toggle" type="button" @click="activeMsg(index)"></button>
-                                <ul class="dropdown-menu" :class="{'show': activeMsgIndex === index}">
+                                <ul class="dropdown-menu" :class="{'show': activeMsgIndex === index}" v-on:mouseleave="!activeMsg(index)">
                                     <li><button class="dropdown-item" type="button">Dettagli</button></li>
-                                    <li><button class="dropdown-item" type="button" @click="deleteMsg(index)">Cancella messaggio</button></li>
+                                    <li><button class="dropdown-item" type="button" @click="deleteMsg(index)">Cancella
+                                            messaggio</button></li>
                                 </ul>
                             </div>
                         </div>
                         <div id="msg-time" class="d-flex justify-content-end gap-1">
-                            <span v-if="msg.status === 'sent'" class="d-flex align-items-center position-relative me-2" >
+                            <span v-if="msg.status === 'sent'" class="d-flex align-items-center position-relative me-2">
                                 <i class="fa-solid fa-check"></i>
                                 <i class="fa-solid fa-check check-read"></i>
                             </span>
@@ -151,8 +158,8 @@
                 </div>
                 <div id="sender-bar" class="d-flex justify-content-around align-items-center">
                     <span class="text-center emoji-container">
-                        <i class="fa-regular fa-face-smile" @click="showEmoji = !showEmoji"></i>
-                        <Picker @select="onSelectEmoji" class="emoji" :class="{'d-none': !showEmoji}" />
+                        <!-- <i class="fa-regular fa-face-smile" @click="showEmoji = !showEmoji"></i>
+                        <Picker @select="onSelectEmoji" class="emoji" :class="{'d-none': !showEmoji}" /> -->
                     </span>
                     <input v-model="msgText" type="text" id="text" name="text" placeholder="Scrivi un messaggio"
                         @keyup.enter="sendMsg">

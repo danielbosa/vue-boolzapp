@@ -35,9 +35,9 @@ img{
     width: 50px;
 }
 
-/* i{
-    margin: 0 10px;
-} */
+i{
+    cursor: pointer;
+}
 
 .contact-bar{
     background-color: var(--color-bar);
@@ -152,6 +152,7 @@ img{
     overflow: hidden;
 }
 
+/**************/
 /* RIGHT side */
 
 .right{
@@ -163,7 +164,16 @@ img{
     font-size: 12px;
 }
 
+#active-chat-icons .dropdown-menu{
+    position: absolute;
+    top: 100%;
+    right: 0%;
+    z-index: 99;
+    display: inline-block;
+}
+
 /* chat section*/
+/* la schermata della chat attiva */
 #chat{
     overflow-y: scroll;
     height: calc(100% - 130px);
