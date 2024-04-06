@@ -18,12 +18,13 @@ createApp({
             activeMsgIndex: null,
             isWriting: false,
             isOnline: false,
+            showEmoji: false,
         }
     },
     methods: {
         onSelectEmoji(emoji) {
             console.log(emoji)
-            this.messageText += emoji.i;
+            this.msgText += emoji.i;
             /*
               // result
               { 
@@ -60,6 +61,7 @@ createApp({
                 this.msgText='';
                 this.sendReply();
                 this.isWriting = true;
+                this.showEmoji = false;
                 this.autoScroll();
             }
         },

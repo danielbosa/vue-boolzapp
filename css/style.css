@@ -250,3 +250,13 @@ img{
 #sender-bar i:hover{
     cursor: pointer;
 }
+
+.emoji-container{
+    position: relative;
+}
+
+.emoji{
+    position: absolute;
+    bottom: 200%;
+    left: 20%;
+}

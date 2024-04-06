@@ -150,9 +150,9 @@
                     </div>
                 </div>
                 <div id="sender-bar" class="d-flex justify-content-around align-items-center">
-                    <span class="text-center">
-                        <i class="fa-regular fa-face-smile"></i>
-                        <Picker @select="onSelectEmoji" class="mia" :class="{'d-none': !showEmoji}" />
+                    <span class="text-center emoji-container">
+                        <i class="fa-regular fa-face-smile" @click="showEmoji = !showEmoji"></i>
+                        <Picker @select="onSelectEmoji" class="emoji" :class="{'d-none': !showEmoji}" />
                     </span>
                     <input v-model="msgText" type="text" id="text" name="text" placeholder="Scrivi un messaggio"
                         @keyup.enter="sendMsg">
