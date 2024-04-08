@@ -21,7 +21,13 @@
 
 <body>
     <div id="app">
-        <div class=" db-container m-auto d-flex">
+        <div class="splash" v-if="showSplash">
+            <div>
+                <img src="./img/logo.png" alt="logo" class="img-fluid">
+            </div>
+            <div class="progress-bar"></div>
+        </div>
+        <div v-else class=" db-container m-auto d-flex">
             <!-- LEFT side -->
             <div class=" left" id="contact-list">
                 <div class=" d-flex justify-content-between align-items-center p-2 contact-bar">

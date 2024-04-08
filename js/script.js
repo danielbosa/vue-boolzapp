@@ -20,6 +20,7 @@ createApp({
             isOnline: false,
             showEmoji: false,
             activeChatMenu: false,
+            showSplash: true,
         }
     },
     methods: {
@@ -39,7 +40,8 @@ createApp({
         },
         showChat(id){
             this.activeContactId = id;
-            this.activeMsgIndex = null
+            this.activeMsgIndex = null;
+            this.activeChatMenu = false
         },
         createMsg(msg,status){
             const newMsg = {
@@ -99,12 +101,11 @@ createApp({
         deleteAllMsgs(){
             this.activeContact.messages.splice()
         },
-        //!!! SISTEMARE IL this.activeContactId CHE DEVE CAMBIARE QUANDO ELIMINO UN'intera CHAT --> faccio div condizionato: se activeContactId è falso, allora si vede div (dove scrivo di selezionare una chat)
         deleteChat(){
             let indexToDelete = this.contacts.findIndex((el)=> el.id === this.activeContactId);
             console.log(this.contacts[indexToDelete]);
             //this.activeChatMenu = false;
-            this.activeContactId = 4;
+            this.activeContactId = null;
             this.contacts.splice(indexToDelete,1);
         },
         //ritorna l'ultimo elemento di array messages
@@ -155,7 +156,9 @@ createApp({
         },
     },
     mounted(){
-
+        setTimeout(() => {
+            this.showSplash = false;
+        }, 3500);
     }
 }).component('Picker', Picker).mount('#app');
 
@@ -173,7 +176,6 @@ Funzionalità
 - perché se cancello il primo messaggio della chat, si cancellano anche tutti gli altri?
 
 Grafica
-- visualizzare un messaggio di benvenuto che invita l'utente a selezionare un contatto dalla lista per visualizzare i suoi messaggi, anziché attivare di default la prima conversazione
 - aggiungere una splash page visibile per 1s all'apertura dell'app
 - A) rendere l'app responsive e fruibile anche su mobile: di default si visualizza solo la lista dei contatti e cliccando su un contatto si vedono i messaggi di quel contatto. B) aggiungere quindi un'icona con una freccia verso sinistra per tornare indietro, dalla visualizzazione della chat alla visualizzazione di tutti i contatti
 - aggiungere un'icona per ingrandire o rimpicciolire il font: dovrebbe essere sufficiente aggiungere una classe al wrapper principale
