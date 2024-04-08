@@ -11,7 +11,7 @@ createApp({
         return {
             contacts,
             replies,
-            activeContactId: 1,
+            activeContactId: null,
             msgText:'',
             searchText:'',
             contactsFiltered:'',
@@ -96,6 +96,17 @@ createApp({
         deleteMsg(index){
             this.activeContact.messages.splice(index,1)
         },
+        deleteAllMsgs(){
+            this.activeContact.messages.splice()
+        },
+        //!!! SISTEMARE IL this.activeContactId CHE DEVE CAMBIARE QUANDO ELIMINO UN'intera CHAT --> faccio div condizionato: se activeContactId è falso, allora si vede div (dove scrivo di selezionare una chat)
+        deleteChat(){
+            let indexToDelete = this.contacts.findIndex((el)=> el.id === this.activeContactId);
+            console.log(this.contacts[indexToDelete]);
+            //this.activeChatMenu = false;
+            this.activeContactId = 4;
+            this.contacts.splice(indexToDelete,1);
+        },
         //ritorna l'ultimo elemento di array messages
         getContactIndex(id){
             const index = this.contacts.findIndex((el)=> el.id === id);
@@ -151,6 +162,8 @@ createApp({
 /*
 FORMAT
 - distingui classi CSS tue da quelle di bootstrap!!!
+- riduci font di dropdown menu
+???sistemare davvero, non con il mouseleave, la chiusura dei dropdown menu on click outside element
 
 Funzionalità
 - sistemare spunte blu nella parte destra: si devono colorare di blu solo 500ms dopo invio;

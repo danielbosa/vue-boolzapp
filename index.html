@@ -103,7 +103,12 @@
                 </section>
             </div>
             <!-- RIGHT SIDE -->
-            <div class=" right" id="chat-section">
+            <div class="right" id="no-chat" v-if="!activeContactId">
+                <div class="text-center">
+                    Seleziona una chat o avvia una conversazione con un nuovo contatto
+                </div>
+            </div>
+            <div class=" right" id="chat-section" v-else="activeContactId">
                 <div class=" d-flex justify-content-between align-items-center p-2 contact-bar">
                     <div class="d-flex active-chat">
                         <img :src="activeContact.avatar" alt="{{activeContact.name}}" class="img-fluid rounded-circle">
@@ -122,9 +127,12 @@
                         <i class="fa-solid fa-paperclip"></i>
                         <i class="fa-solid fa-ellipsis-vertical " @click="activeChatMenu = !activeChatMenu"></i>
                         <ul class="dropdown-menu" :class="{'d-none': activeChatMenu === false}" @mouseleave="activeChatMenu = !activeChatMenu">
-                            <li><button class="dropdown-item" type="button">Dettagli</button></li>
-                                    <li><button class="dropdown-item" type="button" @click="deleteMsg(index)">Cancella
-                                            messaggio</button></li>
+                            <li>
+                                <button class="dropdown-item" type="button" @click="deleteAllMsgs()">Elimina messaggi</button>
+                            </li>
+                            <li>
+                                <button class="dropdown-item" type="button" @click="deleteChat()">Elimina chat</button>
+                            </li>
                         </ul>
                     </div>
                 </div>

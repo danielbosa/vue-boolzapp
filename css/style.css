@@ -182,6 +182,19 @@ i{
     position: relative;
 }
 
+#no-chat{
+    padding: 20px 50px;
+    background-image: url(../img/mine.jpg);
+    position: relative;
+}
+
+#no-chat div{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
 .msg{
     width: 200px;
     padding: 5px 10px;
